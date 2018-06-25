@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Food List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<h1 class = "display-4">Person Details:</h1>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Name: </strong>
+        <span th:text="${person.name}"></span></li>
+    <li class="list-group-item"><strong>Food: </strong>
+        <span th:text="${person.food}"></span></li>
+</ul>
+</body>
+</html>
