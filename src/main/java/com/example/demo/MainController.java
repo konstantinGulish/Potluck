@@ -47,7 +47,7 @@ import javax.validation.Valid;
         }
         @RequestMapping("/update/{id}")
         public String updatePerson ( @PathVariable("id") long id, Model model){
-            model.addAttribute("aPerson", people.findById(id).get());
+            model.addAttribute("person", people.findById(id).get());
             return "addperson";
         }
 
