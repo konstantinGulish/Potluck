@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+<nav th:replace="base :: navbar"></nav>
+<div class="container">
     <h1>Potluck Form</h1>
         <form th:action="@{/process}" th:object="${person}" method="post">
             <div class="form-group">
