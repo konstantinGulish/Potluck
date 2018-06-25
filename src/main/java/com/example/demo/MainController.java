@@ -41,7 +41,7 @@ import javax.validation.Valid;
         }
 
         @RequestMapping("/detail/{id}")
-        public @ResponseBody String showJob(@PathVariable("id") long id, Model model) {
+        public String showJob(@PathVariable("id") long id, Model model) {
             model.addAttribute("person", people.findById(id).get());
             return "show";
         }
