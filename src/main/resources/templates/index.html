@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Main Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <nav th:replace="base :: csslinks"></nav>
 </head>
 <body>
 <nav th:replace="base :: navbar"></nav>
@@ -11,5 +12,6 @@
     <h1 class = "display-1">Potluck Portal</h1>
     <a th:href="@{/addperson}">Add Potluck Information</a>
 </div>
+<nav th:replace="base :: jslinks"></nav>
 </body>
 </html>

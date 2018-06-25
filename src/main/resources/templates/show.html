@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Food List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <nav th:replace="base :: csslinks"></nav>
 </head>
 <body>
+<nav th:replace="base :: navbar"></nav>
+
 <h1 class = "display-4">Person Details:</h1>
 <ul class="list-group">
     <li class="list-group-item"><strong>Name: </strong>
@@ -13,5 +16,6 @@
     <li class="list-group-item"><strong>Food: </strong>
         <span th:text="${person.food}"></span></li>
 </ul>
+<nav th:replace="base :: jslinks"></nav>
 </body>
 </html>
