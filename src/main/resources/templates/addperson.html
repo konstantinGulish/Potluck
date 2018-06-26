@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Potluck Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <nav th:replace="base :: csslinks"></nav>
 </head>
 <body>
@@ -14,18 +13,20 @@
         <div class="form-group">
             <input type ="hidden" th:field ="*{id}" />
             <label for="name">Name:</label>
-            <input type="text" class="form-control" th:field="*{name}">
+            <input type="text" class="form-control" th:field="*{name}"><br/>
+            <span th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}"></span>
         </div>
         <div class="form-group">
             <label for="food">Food:</label>
-            <input type="text" class="form-control" th:field="*{food}">
+            <input type="text" class="form-control" th:field="*{food}"><br/>
+            <span th:if="${#fields.hasErrors('food')}"
+                  th:errors="*{food}"></span>
         </div>
         <button type="submit" class="btn btn-info btn-lg">Submit</button>
     </form>
     <br /><br />
 </div>
 <nav th:replace="base :: jslinks"></nav>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
