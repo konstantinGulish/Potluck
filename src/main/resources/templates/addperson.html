@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Potluck Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <nav th:replace="base :: csslinks"></nav>
 </head>
 <body>
 <nav th:replace="base :: navbar"></nav>
@@ -22,14 +21,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
-    <form th:action="@{/showresults}" th:object="${person}" method="post">
-        <div class="form-group">
-            <label>Search:</label>
-            <input type="text" th:field="*{food}">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 </div>
 <nav th:replace="base :: jslinks"></nav>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
