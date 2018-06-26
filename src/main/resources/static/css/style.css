@@ -1,0 +1,9 @@
+body {
+    background: url("/img/fourth_of_july.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background:rgba(255,255,255,0.9);
+}

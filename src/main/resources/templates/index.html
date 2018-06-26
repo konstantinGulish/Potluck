@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <th:block th:replace="base :: csslinks"> </th:block>
+    <title>Potluck - Home Page</title>
 </head>
+
 <body>
 <nav th:replace="base :: navbar"></nav>
-<div class="container">
-    <h1 class = "display-1">Potluck Portal</h1>
-    <a th:href="@{/addperson}">Add Potluck Information</a>
-</div>
 
-<nav th:replace="base :: jslinks"></nav>
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="jumbotron text-sm-center">
+        <h1 class = "display-1">Welcome to the Potluck Portal!</h1>
+        <a th:href="@{/addperson}"><button class="btn btn-info btn-lg">Add Potluck Information</button></a>
+    </div>
+</div>
+<th:block th:replace="base :: jslinks"></th:block>
 </body>
 </html>

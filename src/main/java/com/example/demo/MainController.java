@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
-    public class MainController {
+public class MainController {
     @Autowired
-    PersonRepository people;
+    PersonRepository personRepository;
 
     @RequestMapping("/")
     public String displayHome() {
@@ -32,39 +31,41 @@ import java.util.List;
         if (result.hasErrors()) {
             return "addperson";
         }
-        people.save(person);
+        personRepository.save(person);
         return "redirect:/showpeople";
     }
 
     @RequestMapping("/showpeople")
     public String showPeople(Model model) {
-        model.addAttribute("people", people.findAll());
+        model.addAttribute("people", personRepository.findAll());
         return "listpeople";
     }
 
     @RequestMapping("/detail/{id}")
     public String showJob(@PathVariable("id") long id, Model model) {
-        model.addAttribute("person", people.findById(id).get());
-        return "show";
+        model.addAttribute("person", personRepository.findById(id).get());
+        return "showperson";
     }
-
     @RequestMapping("/update/{id}")
-    public String updatePerson(@PathVariable("id") long id, Model model) {
-        model.addAttribute("person", people.findById(id).get());
+    public String updatePerson ( @PathVariable("id") long id, Model model){
+        model.addAttribute("person", personRepository.findById(id).get());
         return "addperson";
     }
 
     @RequestMapping("/delete/{id}")
-    public String delCourse(@PathVariable("id") long id) {
-        people.deleteById(id);
+    public  String delCourse(@PathVariable("id") long id){
+        personRepository.deleteById(id);
         return "listpeople";
     }
 
-    @PostMapping("/showresults")
-    public String showResults(Model model, HttpServletRequest request)  {
-        String q = request.getParameter("query");
-        List<Person> results = people.findByFoodIgnoreCase(q);
-        model.addAttribute("results", results);
+    @RequestMapping("/search")
+    public String showSearchResults(HttpServletRequest request, Model model)
+    {
+        //Get the search string from the result form
+        String searchString = request.getParameter("search");
+        model.addAttribute("search", searchString);
+        model.addAttribute("people",
+                personRepository.findAllByFoodContainingIgnoreCase(searchString));
         return "listpeople";
     }
 }

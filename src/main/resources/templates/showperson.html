@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Food List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <nav th:replace="base :: csslinks"></nav>
+</head>
+<body>
+<nav th:replace="base :: navbar"></nav>
+
+<div class="container">
+    <h1 class = "display-4">Person Details:</h1>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Name: </strong>
+            <span th:text="${person.name}"></span></li>
+        <li class="list-group-item"><strong>Food: </strong>
+            <span th:text="${person.food}"></span></li>
+    </ul>
+    <br/>
+    <a th:href="@{/update/{id}(id=${person.id})}" role="button">
+        <button class="btn btn-info btn-lg">Update</button></a><br /><br />
+
+    <a th:href="@{/delete/{id}(id=${person.id})}" role="button">
+        <button class="btn btn-info btn-lg">Delete</button></a><br /><br />
+
+    <a href="/showpeople" role="button">
+        <button class="btn btn-info btn-lg">Show All People</button></a><br /><br />
+</div>
+
+<nav th:replace="base :: jslinks"></nav>
+</body>
+</html>
