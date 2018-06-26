@@ -16,6 +16,11 @@
     <li class="list-group-item"><strong>Food: </strong>
         <span th:text="${person.food}"></span></li>
 </ul>
+    <button> <a th:href="@{/update/{id}(id=${person.id})}">Update
+    </a></button>
+    <button> <a th:href="@{/delete/{id}(id=${person.id})}">Delete
+    </a></button>
+
 <nav th:replace="base :: jslinks"></nav>
 </body>
 </html>
