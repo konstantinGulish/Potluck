@@ -42,18 +42,18 @@ public class MainController {
     }
 
     @RequestMapping("/detail/{id}")
-    public String showJob(@PathVariable("id") long id, Model model) {
+    public String showPerson(@PathVariable("id") long id, Model model) {
         model.addAttribute("person", personRepository.findById(id).get());
         return "showperson";
     }
     @RequestMapping("/update/{id}")
-    public String updatePerson ( @PathVariable("id") long id, Model model){
+    public String updatePerson( @PathVariable("id") long id, Model model){
         model.addAttribute("person", personRepository.findById(id).get());
         return "addperson";
     }
 
     @RequestMapping("/delete/{id}")
-    public  String delCourse(@PathVariable("id") long id){
+    public  String deletePerson(@PathVariable("id") long id){
         personRepository.deleteById(id);
         return "listpeople";
     }
