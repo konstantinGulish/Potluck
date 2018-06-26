@@ -9,13 +9,16 @@
 <body>
 <nav th:replace="base :: navbar"></nav>
 
+
 <h1 class = "display-4">List of People</h1>
+<div th:each="result:${results}" th:text="${result.name}"></div>
 <ul class="list-group" th:each="eachPerson:${people}">
     <a th:href="@{/detail/{id}(id=${eachPerson.id})}">
         <li class="list-group-item" th:text="${eachPerson.name}">
     </a>
     </li>
 </ul>
+
 <nav th:replace="base :: jslinks"></nav>
 </body>
 </html>
